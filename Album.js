@@ -8,29 +8,41 @@ class Album {
 
     }
 
-    static addAlbum(album) {
-        new Album(album)
-    }
+    // static addAlbum(album) {
+    //     new Album(album)
+    // }
 
     renderCard = () => {
-        document.querySelector(".album-container").innerHTML += `
-        <div class="album-card">
-
-        
+        const { name, artist, genre, image, description, id} = this.data
+        document.getElementById("album-container").innerHTML += `
+        <div class="album-card" data-id=${id}>
+        <img src="${image}"alt="${name}"/>
+        <p class="labels">${name}</p>
+        <p class="labels">${artist}</p>
+        <p class="labels">${genre}</p>
+        <p>${description}</p>
         </div>`
     }
 
-    static renderAlbumIndex() {
-        const albumContainer = document.createElement("div")
-        albumContainer.classList.add("album-container")
-        document.getElementById("main").appendChild(albumContainer)
+    static handleIndexClick = (e) => {
 
-        this.all.forEach(album => album.renderCard())
+        if (e.target.tagName == "IMG" || e.target.classList.contains("labels")) {
+            console.log(e.target)
+        }
     }
 
-    static getAlbums() {
+    static renderAlbumIndex = ()  => {
+        const albumContainer = document.createElement("div")
+        albumContainer.id = "album-container"
+        document.getElementById("main").appendChild(albumContainer)
+        this.all.forEach(album => album.renderCard())
+
+        albumContainer.addEventListener("click", this.handleIndexClick)
+    }
+
+    static getAlbums = () => {
         api.getAlbums().then(albums => {
-            albums.forEach(album => Album.addAlbum(album))
+            albums.forEach(album => new Album(album))
             this.renderAlbumIndex()
         })
     }
