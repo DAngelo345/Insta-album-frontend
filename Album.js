@@ -15,6 +15,19 @@ class Album {
         })
     }
 
+    static handleSubmit = (e) => {
+        e.preventDefault()
+
+        const newAlbum = {
+            name: e.target.name.value,
+            artist: e.target.artist.value,
+            genre: e.target.genre.value,
+            imgae: e.target.image.value,
+            description: e.target.description.value
+        }
+        api.createAlbum(newAlbum).then(console.log)
+    }
+
 
     renderCard = () => {
         const { name, artist, genre, image, description, id} = this.data
@@ -64,7 +77,8 @@ class Album {
 
     renderShow = () => {
         const { name, artist, genre, image, description, id} = this.data
-        document.getElementById("main").innerHTML = ` 
+        document.getElementById("main").innerHTML = `
+        <div class="album-card"> 
         <div class="show">
         <h1>${name}</h1>
         <img src="${image}"alt="${name}"/>
@@ -72,6 +86,7 @@ class Album {
         <p class="labels">${genre}</p>
         <p>${description}</p>
         <button id="goBack"> Go Back </button>
+        </div>
         </div>`
         document.getElementById("goBack").addEventListener("click", Album.renderAlbumIndex)
     }

@@ -1,0 +1,198 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+   
+    /* position: relative; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background: #C5EFCB; */
+    color: #ffffff;
+    /* padding: 20em; */
+    font-size: 18px;
+    /* background:#F2F3D9; */
+    /* background: #ffffff; */
+    background: url(sig2.jpg);
+    
+    align-items: center;
+    min-height: 100vh;
+  
+}
+#sidebar {
+    display: flex;
+    
+    margin-top: -55px;
+    position: absolute;
+    width: 200px;
+    height: 70%;
+    border-radius: 15px;
+    background: #000;
+    box-shadow: 0 2px 15px rgb(57, 218, 230);
+    left: -200px;
+    transition: .4s;
+
+}
+
+
+#sidebar.active {
+    margin-left: 10px;
+    left:0;
+}
+
+#sidebar ul li {
+   
+    list-style:  none;
+    font-size: 20px;
+    padding: 25px 24px;
+}
+
+
+#sidebar ul li a .icon {
+
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 1.5em;
+}
+#sidebar ul li a .icon ion-icon {
+
+    font-size: 1.5em;
+}
+
+#sidebar ul li a .title {
+    position: relative;
+    /* display: block; */
+    padding-left: 10px;
+    line-height: 60px;
+}
+
+ .album-container{
+    display: flex;
+    position: center;  
+    flex-direction: column; 
+    margin: auto;
+    color: #C5EFCB;
+} 
+
+.album-card{
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    color:white;
+    background-color:#000;
+    box-shadow: 0 2px 20px rgb(57, 218, 230);
+    width: 614px;
+   
+    padding: 20px;
+  
+} 
+
+#header{
+    height: 60px;
+    padding: 16px;
+    margin: 0;
+    width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+    
+}
+.album-name{
+    float: left;
+    margin-top: 1rem;
+}
+.profile-name{
+    float: middle;
+    position: center;
+    margin-top: 0.5rem;
+}
+.insta-actions{
+    float: right;
+    margin-top: 0.5rem;
+    font-weight: bold;
+
+}
+.image{
+    /* position: center; */
+    /* margin: auto; */
+    text-align: center;
+    /* width: 614px; */
+    /* border: 8px solid rgb(69, 123, 157); */
+   background-size: 100%;
+    object-fit: fill;
+    border-radius: 30px;
+    padding: 10px;
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+
+
+ #sidebar .menu-btn {
+    position: absolute;
+    /* display: flex; */
+    /* float: right; */
+    /* margin-right: 10px; */
+    top:30px;
+    left: 220px;
+    
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    /* border: 3px solid whitesmoke; */
+}
+
+.menu-btn__burger {
+    width: 50px;
+    height: 6px;
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgb(57, 218, 230);
+    transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgb(230, 57, 70);
+    transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before {
+    transform: translateY(-16px);
+}
+.menu-btn__burger::after {
+    transform: translateY(16px);
+}
+
+
+.menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+  }
+  .menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+  }
+  .menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+  }  
+  
+
+
+
+ 

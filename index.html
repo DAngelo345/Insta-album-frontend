@@ -5,22 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INSTA ALBUM</title>
-    <link rel="stylesheet" href="./stylesheets/style.css">
+    <!-- <link rel="stylesheet" href="./stylesheets/style.css"> -->
+    <link rel="stylesheet" href="./stylesheets/style-copy.css">
 
     <script defer src= "index.js"></script>
     <script src= "ApiService.js"></script>
     <script src= "Album.js"></script>
 </head>
 <body>
-    <nav class="navbar"> 
-        <div class="nav-wrapper">
-            <!-- <img src="darksidemoon.jpg" class="brand"> -->
-            ALBUMS
-           
-        </div>
-    </nav>
-    <!-- <h1 class="title"> Hello Insta Album </h1>  -->
 
-   <div id="main"> </div>
+    
+    <div id="sidebar">
+        <!-- <div class="toggle-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            
+        </div> -->
+        <div class="menu-btn" onclick="show()">
+            <div class="menu-btn__burger"></div>
+        </div>
+        <ul>
+        <li><ion-icon name="globe"></ion-icon> Home</li>
+        <li><ion-icon name="add-circle-outline"></ion-icon> Create Album</li>
+        <li><ion-icon name="person"></ion-icon> Profile</li>
+        <li><ion-icon name="chatbubbles"></ion-icon> Contact</li>
+        <li><ion-icon name="log-out"></ion-icon> Log Out</li>
+        </ul>
+    </div>
+
+    
+    
+    <div id="main">
+    </div>
+    
+   
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
 </body>
 </html>
