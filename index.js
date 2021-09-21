@@ -2,8 +2,22 @@ console.log("hello insa album")
 
 const api = new ApiService("http://localhost:3000")
 
+let user
+
 // Album.createAlbum()
-Album.getAlbums()
+// Album.getAlbums()
+
+document.querySelector("form").addEventListener("submit", UsernameSubmit)
+
+function UsernameSubmit(e) {
+    e.preventDefault()
+    api.findOrCreateUser(e.target.username.value).then(userData => {
+        user = userData
+        Album.getAlbums()
+    })
+}
+
+
 
 function show() {
 
@@ -29,6 +43,7 @@ let addAlbum = document.querySelector('.add-album')
         if (e.target.classList == "add-album")
             Album.createAlbumForm()
     })
+    
 
 
 let homeButton = document.querySelector('.home-button')
@@ -36,6 +51,8 @@ let homeButton = document.querySelector('.home-button')
     if (e.target.classList == "home-button")
     Album.renderAlbumIndex()
     })
+
+   
 
 // function aBtns() {
     

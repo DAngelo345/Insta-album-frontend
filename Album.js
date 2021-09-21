@@ -21,15 +21,20 @@ class Album {
         console.log("this form has been subbmitteddd")
 
         const newAlbum = {
+            // id: id,
             name: e.target.name.value,
             artist: e.target.artist.value,
             genre: e.target.genre.value,
             image: e.target.image.value,
-            description: e.target.description.value
+            description: e.target.description.value,
+            user_id: user.id,
+            // user: user
+            // username: user.username
         }
-        // console.log(newAlbum)
-        api.createAlbum(newAlbum).then(album => {
+        console.log(newAlbum)
+         api.createAlbum(newAlbum).then(album => {
             new Album(album)
+                Album.renderAlbumIndex()
         })
         e.target.reset()
     }
@@ -59,7 +64,8 @@ class Album {
     
 
     renderCard = () => {
-        const { name, artist, genre, image, description, id} = this.data
+        const { name, artist, genre, image, description, id, username } = this.data
+        // debugger
         document.getElementById("album-container").innerHTML += `
         <div class="album-card" data-id=${id}>
             <div id="header" class="insta-header">
@@ -67,7 +73,7 @@ class Album {
             <div class"album-name">
             ${name}
             </div>
-            <span class="profile-name">username</span>
+            <span class="profile-name">${username}</span>
             </div>
                 <div class="image">
                     <img src="${image}"alt="${name}" />
@@ -90,7 +96,7 @@ class Album {
     static find = (id) => this.all.find(album => album.data.id == id )
 
     
-    static renderAlbumIndex = ()  => {
+    static renderAlbumIndex = () => {
         const main = document.getElementById("main")
         main.innerHTML = ""
         const albumContainer = document.createElement("div")
@@ -100,14 +106,14 @@ class Album {
         this.all.forEach(album => album.renderCard())
         
         albumContainer.addEventListener("click", this.handleIndexClick)
-    //   albumContainer.addEventListener('click', aBtns)
+        //   albumContainer.addEventListener('click', aBtns)
         
         const bttns = document.querySelectorAll('button')
 
         for (const editOrDbtn of bttns) {
             editOrDbtn.addEventListener('click', buttonType)
         }
-        
+    
         function buttonType(event) {
 
             if (event.target.innerText == "DELETE") {
@@ -132,13 +138,7 @@ class Album {
                 .then(resp => resp.json())
                 .then(data => alert(data.message))
         }
-
     }
-
-    
-
-
-
     
 
     static handleIndexClick = (e) => {
