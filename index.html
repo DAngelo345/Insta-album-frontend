@@ -14,10 +14,8 @@
 </head>
 <body>
 
-    
-    
-    
-    
+
+
     <div id="sidebar">
         <!-- <div class="toggle-btn">
             <span></span>
@@ -33,9 +31,19 @@
         <li class="add-album"><ion-icon name="add-circle-outline"></ion-icon> Create Album</li>
         <li><ion-icon name="person"></ion-icon> Profile</li>
         <li><ion-icon name="chatbubbles"></ion-icon> Contact</li>
-        <li><ion-icon name="log-out"></ion-icon> Log Out</li>
+        <li class="log-out"><ion-icon name="log-out"></ion-icon> Log Out</li>
         </ul>
     </div>
+
+   
+    <div>
+        <form id="search-bar" class="search-card">
+            <label for="Search">Search:</label><br>
+            <input type="text" id="search" name="search">
+           
+        </form>
+    </div>
+    
     <div id="main">
         <form class="form-card">
             <label for="username">Username:</label><br>
@@ -43,7 +51,10 @@
             <input type="submit" value="Submit">
         </form>
     </div>
-    
+
+   
+
+   
    
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src= "ApiService.js"></script>

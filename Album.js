@@ -15,13 +15,20 @@ class Album {
         })
     }
 
+    // static searchAlbums = () => {
+    //     api.getAlbums().then(albums => {
+    //         albums.forEach(album => new Album(album))
+    //         // this.renderAlbumIndex()
+    //     })
+    // }
+
     static handleSubmit = (e) => {
         // debugger;
         e.preventDefault()
         console.log("this form has been subbmitteddd")
 
         const newAlbum = {
-            // id: id,
+          
             name: e.target.name.value,
             artist: e.target.artist.value,
             genre: e.target.genre.value,
@@ -59,10 +66,10 @@ class Album {
          </div>`
          document.querySelector('form').addEventListener("submit", this.handleSubmit)
         
-     }
-
+    }
     
 
+    
     renderCard = () => {
         const { name, artist, genre, image, description, id, username } = this.data
         // debugger
@@ -87,10 +94,7 @@ class Album {
             </div>
             <button id="edit-btn" style="display: block;">EDIT</button>
             <button id="delete-btn" style="display: block;">DELETE</button>
-        </div>`
-       
-
-        
+        </div>` 
     }
 
     static find = (id) => this.all.find(album => album.data.id == id )
@@ -103,6 +107,7 @@ class Album {
         albumContainer.id = "album-container"
         
         main.appendChild(albumContainer)
+      
         this.all.forEach(album => album.renderCard())
         
         albumContainer.addEventListener("click", this.handleIndexClick)
@@ -145,16 +150,18 @@ class Album {
 
         if (e.target.tagName == "IMG" || e.target.classList.contains("labels")) {
             const id = e.target.closest(".album-card").dataset.id
+        
             this.find(id).renderShow()
         }
     }
 
     renderShow = () => {
-        const { name, artist, genre, image, description, id} = this.data
+        const { name, artist, genre, image, description, username} = this.data
         document.getElementById("main").innerHTML = `
         <div class="album-card"> 
         <div class="show">
         <h1>${name}</h1>
+        <p class="labels"> posted by ${username}</p>
         <img class="image" src=${image} alt=${name}/>
         <p class="labels">${artist}</p>
         <p class="labels">${genre}</p>
@@ -163,6 +170,17 @@ class Album {
         </div>
         </div>`
         document.getElementById("goBack").addEventListener("click", Album.renderAlbumIndex)
+    }
+
+    static renderLoginPage = () => {
+        const main = document.getElementById("main")
+        main.innerHTML = ""
+        document.getElementById("main").innerHTML = `
+        <form class="form-card">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username">
+            <input type="submit" value="Submit">
+        </form> `
     }
 
 

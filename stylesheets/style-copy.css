@@ -55,7 +55,6 @@ body{
 
 
 #sidebar ul li a .icon {
-
     position: relative;
     display: block;
     min-width: 60px;
@@ -64,8 +63,8 @@ body{
     text-align: center;
     font-size: 1.5em;
 }
-#sidebar ul li a .icon ion-icon {
 
+#sidebar ul li a .icon ion-icon {
     font-size: 1.5em;
 }
 
@@ -93,10 +92,9 @@ body{
     background-color:#000;
     box-shadow: 0 2px 20px rgb(57, 218, 230);
     width: 614px;
-   
     padding: 20px;
-  
 } 
+
 .form-card{
     margin: auto;
     margin-top: 60px;
@@ -106,11 +104,24 @@ body{
     background-color:#000;
     box-shadow: 0 2px 20px rgb(57, 218, 230);
     width: 200px;
-   
     padding: 20px;
-  
-
 }
+
+.search-card{
+    margin-left: 1000px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+    
+    color:white;
+    background-color:#000;
+    box-shadow: 0 2px 20px rgb(57, 218, 230);
+    width: 200px;
+    padding: 20px;
+}
+
+
+
 
 #header{
     height: 60px;

@@ -8,14 +8,7 @@ class ApiService {
 
 
     createAlbum = (newAlbum) => {
-        // fetch(this.api + "/albums", {
-        //     method: 'POST',
-        //     header: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newAlbum)
-        // })
-        // .then(response => response.json())
+    
         // newAlbum.user_id = newAlbum.id
     
         return fetch(this.api + "/albums", {
