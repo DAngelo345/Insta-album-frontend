@@ -11,10 +11,10 @@ let albumSearch = [];
 
 const searchMain = document.getElementById('main')
 
-const renderSearched = (albumsArrayOfObjs) => {
+const renderSearched = (filteredAlbumsArray) => {
 
-    console.log(albumsArrayOfObjs)
-    const htmlString = albumsArrayOfObjs.map((album) => {
+    console.log(filteredAlbumsArray)
+    const htmlString = filteredAlbumsArray.map((album) => {
 
         return `<div class="album-card" data-id=${album.id}>
             <div id="header" class="insta-header">
@@ -74,10 +74,6 @@ search.addEventListener("keyup", (e) => {
     
  })
 
-
-    
-
-
 document.querySelector("form").addEventListener("submit", UsernameSubmit)
 
 function UsernameSubmit(e) {
@@ -88,8 +84,6 @@ function UsernameSubmit(e) {
         Album.getAlbums()
     })
 }
-
-
 
 function show() {
 
